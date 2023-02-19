@@ -74,7 +74,7 @@ Item {
 
             SettingsItem {
                 id: _DomainName
-                y: 281
+                y: 341
                 width: 274
                 title: "访问域名"
             }
