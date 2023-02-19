@@ -37,7 +37,7 @@ exe = EXE(
     target_arch=None,
     codesign_identity=None,
     entitlements_file=None,
-    icon=['image-chan\\favicon.ico']
+    icon=['image-chan\\layout\\image\\favicon.ico']
 )
 coll = COLLECT(
     exe,
