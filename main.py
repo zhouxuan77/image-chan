@@ -1,4 +1,5 @@
 import ctypes
+import os.path
 import sys
 from pathlib import Path
 
@@ -14,7 +15,8 @@ ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("image-chan")
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
     # 设置应用程序 ICON
-    app.setWindowIcon(QIcon("favicon.ico"))
+    icon_path = Path(__file__).resolve().parent / "layout/image/favicon.ico"
+    app.setWindowIcon(QIcon("{}".format(icon_path)))
 
     engine = QQmlApplicationEngine()
     qml_file = Path(__file__).resolve().parent / "layout/main.qml"
