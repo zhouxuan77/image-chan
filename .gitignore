@@ -3,3 +3,5 @@
 
 layout/layout.pyproject.user
 layout/layout.qmlproject.qtds
+
+*.pyc

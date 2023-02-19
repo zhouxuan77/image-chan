@@ -1,0 +1,13 @@
+{
+    "files": ["main.qml", "../main.py",
+    "sources/screen.js", "sources/utils.js", "sources/tips.js",
+    "component/Sidebar/Sidebar.qml",
+    "component/CButton/CButton.qml",
+    "component/GalleryView/GalleryView.qml","component/GalleryView/GalleryViewItem.qml",
+    "component/SettingsItem/SettingsItem.qml","component/SettingsItem/SettingsGroup.qml",
+    "screen/ArticleScreen.qml", "screen/ArticleScreenForm.ui.qml",
+    "screen/ConvertScreen.qml", "screen/ConvertScreenForm.ui.qml",
+    "screen/UploadScreen.qml", "screen/UploadScreenForm.ui.qml",
+    "screen/SettingsScreen.qml", "screen/SettingsScreenForm.ui.qml"
+    ]
+}
