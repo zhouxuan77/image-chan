@@ -9,11 +9,23 @@ import "./screen/"
 import "./sources/screen.js" as Screen
 
 Window {
+    id: _window
     width: 800
     height: 500
     visible: true
     flags: Qt.Window | Qt.FramelessWindowHint | Qt.WindowSystemMenuHint | Qt.WindowMinimizeButtonHint | Qt.WindowMaximizeButtonHint
     title: "图床酱"
+    MouseArea {
+        anchors.fill: parent
+        acceptedButtons: Qt.LeftButton
+        onPressed: {
+            mousePos = [mouse.x, mouse.y]
+        }
+        onPositionChanged: {
+            _window.x = _window.x + mouse.x-mousePos[0]
+            _window.y = _window.y + mouse.y-mousePos[1]
+        }
+    }
 
     Sidebar {
         id: sidebar
@@ -66,6 +78,9 @@ Window {
     }
 
     property int sidebarSelect: 0
+
+    // 记录按下拖动是鼠标点击的位置
+    property var mousePos: [0, 0]
 
     Connections {
         target: pythonSlot
