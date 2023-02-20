@@ -119,11 +119,12 @@ class FileUtils:
                 log.info("执行: " + str_cmd)
                 # os.system(str_cmd)
                 subp = subprocess.Popen(str_cmd)
-                subp.wait(2)
+                subp.wait(360)
 
-            if os.path.exists(output_path):
-                os.remove(input_path)
-                convert_num += 1
+                if subp.poll() == 0 and os.path.exists(output_path):
+                    os.remove(input_path)
+                    convert_num += 1
+
         return convert_num
 
     def upload_tmp_photo(self):
