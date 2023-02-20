@@ -139,7 +139,7 @@ class ArticleUtils:
 
         for photo in photo_list:
             path_data = {
-                'file_name': os.path.basename(photo),
+                'file_name': os.path.basename(photo).replace('.png', '.webp'),
                 'now_year': t.tm_year,
                 'now_month': (t.tm_mon, "0{}".format(t.tm_mon))[t.tm_mon < 10],
                 'now_day': t.tm_mday,
@@ -148,7 +148,7 @@ class ArticleUtils:
                 'file_day': t.tm_mday
             }
 
-            if 'image-' in os.path.basename(photo) and len(os.path.basename(photo)) >= 27:
+            if 'image-' in photo:
                 path_data['file_year'] = os.path.basename(photo)[6:10]
                 path_data['file_month'] = os.path.basename(photo)[10:12]
                 path_data['file_day'] = os.path.basename(photo)[12:14]

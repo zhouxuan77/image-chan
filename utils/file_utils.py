@@ -1,5 +1,6 @@
 import os
 import shutil
+import subprocess
 import time
 import tkinter
 from tkinter import filedialog
@@ -116,7 +117,9 @@ class FileUtils:
             else:
                 str_cmd = '{} -lossless "{}" -o "{}"'.format(webp_path, input_path, output_path)
                 log.info("执行: " + str_cmd)
-                os.system(str_cmd)
+                # os.system(str_cmd)
+                subp = subprocess.Popen(str_cmd)
+                subp.wait(2)
 
             if os.path.exists(output_path):
                 os.remove(input_path)
@@ -146,13 +149,14 @@ class FileUtils:
                 'file_day': t.tm_mday
             }
 
-            if 'image-' in photo and len(photo) >= 27:
+            if 'image-' in photo:
                 path_data['file_year'] = photo[6:10]
                 path_data['file_month'] = photo[10:12]
                 path_data['file_day'] = photo[12:14]
 
             upload_key = config.get_value('upload', 'upload_path')
             upload_key = upload_key.format(**path_data)
+
             result = oss.cos_upload_file(os.path.join(root_path.get('tmp_upload'), photo), upload_key)
 
             if result == 'ok':
