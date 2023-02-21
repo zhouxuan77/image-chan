@@ -1,0 +1,5 @@
+colorlog==6.7.0
+cos_python_sdk_v5==1.9.22
+pyperclip==1.8.2
+PySide6==6.4.2
+qcloud_cos==3.3.6

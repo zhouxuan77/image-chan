@@ -1,3 +1,10 @@
-/.ropeproject/
+/tmp/
+/tests/
+/dist/
+/build/
+/__pycache__/
+
+layout/layout.pyproject.user
+layout/layout.qmlproject.qtds
 
 *.pyc

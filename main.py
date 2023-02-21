@@ -1,22 +1,31 @@
-# This Python file uses the following encoding: utf-8
+import ctypes
+import os.path
 import sys
 from pathlib import Path
 
-from PySide6.QtGui import QGuiApplication
+from PySide6.QtGui import QGuiApplication, QIcon
 from PySide6.QtQml import QQmlApplicationEngine
 
-from utils.event_handler import EventHandler
+import slot
+
+# 设置窗口 ICON
+ctypes.windll.shell32.SetCurrentProcessExplicitAppUserModelID("image-chan")
+
 
 if __name__ == "__main__":
     app = QGuiApplication(sys.argv)
-    engine = QQmlApplicationEngine()
-    qml_file = Path(__file__).resolve().parent / "main.qml"
+    # 设置应用程序 ICON
+    icon_path = Path(__file__).resolve().parent / "layout/image/favicon.ico"
+    app.setWindowIcon(QIcon("{}".format(icon_path)))
 
-    event_handler = EventHandler(app)
-    engine.rootContext().setContextProperty('eventHandler', event_handler)
+    engine = QQmlApplicationEngine()
+    qml_file = Path(__file__).resolve().parent / "layout/main.qml"
+
+    # 绑定信号
+    python_slot = slot.PythonSlot()
+    engine.rootContext().setContextProperty('pythonSlot', python_slot)
 
     engine.load(qml_file)
-
     if not engine.rootObjects():
         sys.exit(-1)
     sys.exit(app.exec())
