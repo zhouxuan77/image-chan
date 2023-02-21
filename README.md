@@ -1,4 +1,4 @@
-<div align="center"><img src="https://image.zhouxuan77.top/README/image-chan/logo.png" width="25%" height="25%" /></div>
+<div align="center"><img src="https://image.zhouxuan77.top/README/image-chan/logo.webp" width="25%" height="25%" /></div>
 
 ![maven](https://img.shields.io/badge/python-3.8%2B-blue) ![maven](https://img.shields.io/badge/qt-6.4%2B-yellow)
 
@@ -14,7 +14,7 @@
 
 启动 `图床酱.exe` 后，只需要对配置进行修改即可使用，具体配置项目如下
 
-![image-20230221143431919](https://image.zhouxuan77.top/README/image-chan/image-20230221143431919.png)
+![image-20230221143431919](https://image.zhouxuan77.top/README/image-chan/image-20230221143431919.webp)
 
 - Bucket 上传设置
   
